@@ -2,6 +2,8 @@ FROM ruby:2.6-alpine
 
 RUN apk add --no-cache build-base postgresql postgresql-dev libpq
 
+RUN gem install bundler
+
 RUN mkdir /url_shortener
 
 WORKDIR /url_shortener
