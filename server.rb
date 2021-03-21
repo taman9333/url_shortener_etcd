@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'json'
 require_relative 'shorten_url'
+require_relative 'counter'
 
 before do
   content_type 'application/json'
@@ -18,6 +19,11 @@ before '/shorten' do
     halt 400, { message: 'Invalid JSON' }.to_json
   end
 end
+
+get '/counter' do
+  [200, { counter: Counter.count }.to_json]
+end
+
 
 get '/:shortcode' do
   record = Url.find_by_shortcode(params[:shortcode])

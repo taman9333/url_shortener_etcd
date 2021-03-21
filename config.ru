@@ -4,7 +4,9 @@
 
 require './server'
 require './counter'
+require './etcd'
 
+Etcd.init
 Counter.init
 
 run Sinatra::Application

@@ -17,8 +17,20 @@ GEM
     concurrent-ruby (1.1.8)
     daemons (1.3.1)
     diff-lcs (1.4.4)
+    etcdv3 (0.10.2)
+      grpc (~> 1.17)
     eventmachine (1.2.7)
     ffi (1.15.0)
+    google-protobuf (3.15.7-universal-darwin)
+    google-protobuf (3.15.7-x86_64-linux)
+    googleapis-common-protos-types (1.0.6)
+      google-protobuf (~> 3.14)
+    grpc (1.36.0-universal-darwin)
+      google-protobuf (~> 3.14)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.36.0-x86_64-linux)
+      google-protobuf (~> 3.14)
+      googleapis-common-protos-types (~> 1.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     listen (3.5.1)
@@ -97,6 +109,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  etcdv3
   pg
   rack-test
   rake

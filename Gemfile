@@ -7,6 +7,7 @@ gem 'rake' # to run rake tasks
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'thin'
+gem 'etcdv3'
 
 group :development do
   # reload sinatra app on changes
