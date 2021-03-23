@@ -4,6 +4,7 @@ services:
     build: .
     volumes:
       - .:/url_shortener
+      - gem_cache:/usr/local/bundle/gems
     env_file:
       - .env.development
     ports:
@@ -43,3 +44,4 @@ volumes:
   etcd_data:
     driver: local
   postgres_data:
+  gem_cache:
