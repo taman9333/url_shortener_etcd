@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    build: .
+    volumes:
+      - .:/url_shortener
+    env_file:
+      - .env.development
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    # as depends_on does not wait for db to be ready before starting api, only until it has been started
+    command: > 
+      sh -c "
+        while ! nc -z db 5432; do
+          echo 'Postgres is unavailable.'
+          sleep 1
+        done
+        thin start"
+
+  db:
+    image: 'postgres:12-alpine'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
